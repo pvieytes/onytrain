@@ -1,12 +1,14 @@
-//Sample using LiquidCrystal library
+/*******************************************************
+Onytrain: http://pvieytes.github.io/onytrain/onytrain_lcd/onytrain_lcd.ino
+
+Onytrain - User interface. LCD.
+
+Pablo Vieytes - 09/27/2015
+********************************************************/
+
+//LiquidCrystal library
 #include <LiquidCrystal.h>
 
-/*******************************************************
-
-This program will test the LCD panel and the buttons
-Mark Bramwell, July 2010
-
-********************************************************/
 
 // select the pins used on the LCD panel
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
@@ -14,15 +16,15 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 // define some values used by the panel and buttons
 int lcd_key     = 0;
 int adc_key_in  = 0;
-#define btnRIGHT  0
-#define btnUP     1
-#define btnDOWN   2
-#define btnLEFT   3
-#define btnSELECT 4
-#define btnNONE   5
+#define BTN_RIGHT  0
+#define BTN_UP     1
+#define BTN_DOWN   2
+#define BTN_LEFT   3
+#define BTN_SELECT 4
+#define BTN_NONE   5
 
-#define lcdCTRLLIGHT  10
-#define MAXANALOGWRITE 255
+#define DEFAULT_LCD_LIGHT  10
+#define MAX_ANALOG_WRITE 255
 
 
 
