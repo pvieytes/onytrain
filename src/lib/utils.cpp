@@ -12,6 +12,7 @@ void clearLine(LiquidCrystal lcd, int line){
   }
 }
 void lcdPrintLine(LiquidCrystal lcd, int line, String s){
+	clearLine(lcd,line);
 	Serial.println(s);
 	lcd.setCursor(0, line);
 	lcd.print(s);

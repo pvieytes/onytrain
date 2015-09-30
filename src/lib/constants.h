@@ -3,7 +3,7 @@
 #ifndef constants_h
 #define constants_h
 
-#define WELCOME_TIME 1000
+#define WELCOME_TIME 5000
 #define WELCOME_STRING_1 "ONYTRAIN"
 #define WELCOME_STRING_2 "MOLA"
 

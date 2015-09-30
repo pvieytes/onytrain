@@ -5,6 +5,7 @@
 
 
 void Fsm::init(){
+  _speed=INITIAL_SPEED;  
   _setState(INITIAL_STATE);
   
 }
@@ -43,10 +44,15 @@ void Fsm::_eventSelectTrain(int event){
       _motor.setSpeed(_speed);
       break;
     }
-     case BTN_SELECT:
+    case BTN_SELECT:
     {
       _speed = 0;
       _motor.setSpeed(_speed);
+      break;
+    }
+    case BTN_UP:
+    {
+      _setWelcome();
       break;
     }
   }
@@ -82,7 +88,6 @@ void Fsm::_setState(int state){
 
 void Fsm::_setSelectTrain(){
   _currentState=SELECT_SPEED_TRAIN_STATE;
-  _speed=INITIAL_SPEED;
   _motor.setSpeed(_speed);
   firstLine = SPEED_STRING;
   secondLine = _motor.getSpeedString(_speed);
