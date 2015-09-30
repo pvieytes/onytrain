@@ -128,12 +128,12 @@ void loop()
  int buttonRead = event.getEvent();
  switch (buttonRead)
  {
- 	case BTN_UP:
+ 	case BTN_LEFT:
  	{
  		increaseSpeed();
  		break;
  	}
- 	case BTN_DOWN:
+ 	case BTN_RIGHT:
  	{
  		decreaseSpeed();
  		break;
