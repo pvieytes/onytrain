@@ -18,7 +18,8 @@
 
 #define START_SPEED_CHAR 6
 
-
+#define MOTOR_IN4		3
+#define MOTOR_IN3		2
 
 #endif
 

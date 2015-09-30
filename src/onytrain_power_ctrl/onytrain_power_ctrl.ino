@@ -48,18 +48,20 @@ void printSpeed(){
 
 void increaseSpeed(){
   speed = speed + SPEED_STEP;
-  if (speed>MAX_SPEED){
+  if (speed > MAX_SPEED){
     speed = MAX_SPEED;
   }
   printSpeed();
+  moveMotor();
 }
 
 void decreaseSpeed(){
   speed = speed - SPEED_STEP;
-  if (speed< -MAX_SPEED){
+  if (speed < -MAX_SPEED){
     speed = - MAX_SPEED;
   }
   printSpeed();
+  moveMotor();
 }
 
 
@@ -72,6 +74,26 @@ void turnOffLight(){
 	analogWrite(LCD_CTRL_LIGHT, 0);
 }
 
+void moveMotor(){
+	int conversion_aux;
+	Serial.println("Speed: " + String(speed, DEC));
+	if (speed == 0){
+		analogWrite(MOTOR_IN4, 0);
+		analogWrite(MOTOR_IN3, 0);
+	} else {
+		conversion_aux = (speed * MAX_ANALOG_WRITE)/MAX_SPEED;
+		Serial.println("conversion_aux: " + String(conversion_aux, DEC));
+
+		if (speed > 0)
+		{
+			analogWrite(MOTOR_IN4, conversion_aux);
+			analogWrite(MOTOR_IN3, 0);
+		} else {
+			analogWrite(MOTOR_IN4, 0);
+			analogWrite(MOTOR_IN3, abs(conversion_aux));
+		}
+	}
+}
 
 void setup()
 {
@@ -83,10 +105,18 @@ void setup()
  //init lcd
  lcd.begin(LCD_CHARS, LCD_LINES);        
  pinMode(LCD_CTRL_LIGHT, OUTPUT);
+
+ //init motor module
+ pinMode(MOTOR_IN4, OUTPUT);
+ pinMode(MOTOR_IN3, OUTPUT);
+
+
+ 
  analogWrite(LCD_CTRL_LIGHT, DEFAULT_LCD_LIGHT);
  lcd.setCursor(0,0);
  lcd.print(MAIN_STRING);
  speed = 0;
+ moveMotor();
  direction = FRONT_REAR;
  printSpeed();
 
