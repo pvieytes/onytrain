@@ -14,9 +14,6 @@
 
 #define MAX_SPEED 100
 #define SPEED_STEP MAX_SPEED/20
-#define FRONT_REAR 1
-#define BACK_REAR -1
-#define STOPPED 0
 
 #define START_SPEED_CHAR 6
 

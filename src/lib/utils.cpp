@@ -6,7 +6,7 @@
 
 
 void clearLine(LiquidCrystal lcd, int line){
-  lcd.setCursor(line,0);
+  lcd.setCursor(0,line);
   for(int i=0; i<LCD_CHARS; i++){
     lcd.print(" ");
   }

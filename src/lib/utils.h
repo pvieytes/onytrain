@@ -6,21 +6,4 @@
 
 void clearLine(LiquidCrystal lcd, int line);
 
-/*
-class Utils
-{
-  public:
-  //methods
-  void clearLine(LiquidCrystal lcd, int line);
-  //attributes
-  
-  private:
-    //Methods
-    //Attributes
-};
-
-
-*/
-
-
 #endif
