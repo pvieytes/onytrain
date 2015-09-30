@@ -6,8 +6,11 @@
 
 #include "motor.h"
 
-#define SELECT_TRAIN_STATE 0
-#define INITIAL_STATE SELECT_TRAIN_STATE
+#define WELCOME_STATE 0
+#define SELECT_SPEED_TRAIN_STATE 1
+
+
+#define INITIAL_STATE WELCOME_STATE
 
 
 
@@ -30,7 +33,13 @@ class Fsm
     int _speed;
     Motor _motor;
     //methods
-    void _eventSelectTrain(int event);
+   void _eventWelcome(int event);
+   void _eventSelectTrain(int event);
+   void _setState(int state);
+   void _setWelcome();
+   void _setSelectTrain();
+
+
    
 };
 

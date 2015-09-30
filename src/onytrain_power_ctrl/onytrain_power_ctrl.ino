@@ -49,7 +49,8 @@ void setup()
  pinMode(MOTOR_IN3, OUTPUT);
 
  fsm.init();
- 
+ lcdPrintLine(lcd, 0, fsm.firstLine);
+ lcdPrintLine(lcd, 1, fsm.secondLine);
  
 
 }
