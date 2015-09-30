@@ -23,15 +23,6 @@ int direction;
 
 
 
-
-
-void clearLine(LiquidCrystal lcd, int line){
-  lcd.setCursor(0,line);
-  for(int i=0; i<LCD_CHARS; i++){
-    lcd.print(" ");
-  }
-}
-
 void printSpeed(){
   clearLine(lcd, 1);
   lcd.setCursor(START_SPEED_CHAR, 1);

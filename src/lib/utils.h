@@ -1,11 +1,26 @@
+#include "Arduino.h"
 
-#ifndef event_h
-#define event_h
-
+#ifndef utils_h
+#define utils_h
 #include <LiquidCrystal.h>
 
+void clearLine(LiquidCrystal lcd, int line);
 
-//void clearLine(LiquidCrystal lcd, int line);
+/*
+class Utils
+{
+  public:
+  //methods
+  void clearLine(LiquidCrystal lcd, int line);
+  //attributes
+  
+  private:
+    //Methods
+    //Attributes
+};
+
+
+*/
 
 
 #endif
