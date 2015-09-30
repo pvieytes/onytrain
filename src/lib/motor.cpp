@@ -5,23 +5,29 @@
 
 #include <LiquidCrystal.h>
 
-
-
-
-
-void  Motor::printSpeed(LiquidCrystal lcd, int speed){
-  //clearLine(lcd, 1);
-  clearLine(lcd, 1);
-  lcd.setCursor(START_SPEED_CHAR, 1);
-  lcd.print(abs(speed), DEC);
-  if (speed<0){
-    lcd.setCursor(0, 1);
-    lcd.print("<-");
+String  Motor::getSpeedString(int speed){
+  String str;
+  //str = "<";
+  if (speed < 0 ){
+    str = "<<";
+  } else {
+    str = "  ";
   }
-  if (speed>0){
-    lcd.setCursor(LCD_CHARS -3, 1);
-    lcd.print("->");
+  for (int i=0; i<START_SPEED_CHAR-2; i++){
+    str = str + " ";
   }
+  str = str + String(abs(speed), DEC);
+  log("str length:  " + String(str.length(), DEC));
+  for (int i=0; i<LCD_CHARS-str.length()+3; i++)
+  {
+    str = str + " ";
+  }
+  if (speed>0 ){
+    str = str + ">>";
+  } else {
+    str = str + "  ";
+  }
+  return str;
 }
 
 int Motor::increaseSpeed(int speed){

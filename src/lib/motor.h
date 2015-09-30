@@ -13,7 +13,8 @@ class Motor
   //methods
   int increaseSpeed(int speed);
   int decreaseSpeed(int speed);
-  void printSpeed(LiquidCrystal lcd, int speed);
+  String  getSpeedString(int speed);
+
   void setSpeed(int speed);
 
   //attributes
