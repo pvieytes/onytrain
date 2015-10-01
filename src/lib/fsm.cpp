@@ -12,6 +12,10 @@ void Fsm::init(){
 
 
 void Fsm::event(int event){
+  if(event != BTN_NONE){
+    log("event");
+    log(String(event , DEC));
+  }
   switch (_currentState)
   {
     case SELECT_SPEED_TRAIN_STATE:
@@ -24,7 +28,6 @@ void Fsm::event(int event){
       _eventWelcome(event);
       break;
     }
-
   }
 }
 
@@ -56,16 +59,12 @@ void Fsm::_eventSelectTrain(int event){
       break;
     }
   }
-  secondLine = _motor.getSpeedString(_speed);
-  
 };
 
 void Fsm::_eventWelcome(int event){
   delay(WELCOME_TIME);
   _setSelectTrain();
 }
-
-
 
 void Fsm::_setState(int state){
   switch (state)
@@ -83,8 +82,6 @@ void Fsm::_setState(int state){
 
   }
 }
-
-
 
 void Fsm::_setSelectTrain(){
   _currentState=SELECT_SPEED_TRAIN_STATE;

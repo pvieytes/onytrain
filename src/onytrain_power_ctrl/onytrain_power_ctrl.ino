@@ -21,6 +21,8 @@ Pablo Vieytes - 09/27/2015
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 Event event;
 Fsm fsm;
+String firstLine;
+String secondLine;
 
 
 void turnOnLight(){
@@ -58,8 +60,19 @@ void setup()
 
 void loop()
 {
-  fsm.event(event.getEvent());
-  lcdPrintLine(lcd, 0, fsm.firstLine);
-  lcdPrintLine(lcd, 1, fsm.secondLine);
+  int eventId = event.getEvent();
+  fsm.event(eventId);
+  if (eventId != BTN_NONE){
+  	log(fsm.firstLine);
+    log(fsm.secondLine);
+  }
+  if (firstLine != fsm.firstLine){
+  	lcdPrintLine(lcd, 0, fsm.firstLine);
+  	firstLine = fsm.firstLine;
+  }
+  if (secondLine != fsm.secondLine){
+  	lcdPrintLine(lcd, 1, fsm.secondLine);
+  	secondLine = fsm.secondLine;
+  }  
 }
 

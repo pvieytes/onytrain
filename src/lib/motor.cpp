@@ -17,7 +17,6 @@ String  Motor::getSpeedString(int speed){
     str = str + " ";
   }
   str = str + String(abs(speed), DEC);
-  log("str length:  " + String(str.length(), DEC));
   for (int i=0; i<LCD_CHARS-str.length()+3; i++)
   {
     str = str + " ";
@@ -50,13 +49,11 @@ int Motor::decreaseSpeed(int speed){
 
 void Motor::setSpeed(int speed){
   int conversion_aux;
-  Serial.println("Speed: " + String(speed, DEC));
   if (speed == 0){
     analogWrite(MOTOR_IN4, 0);
     analogWrite(MOTOR_IN3, 0);
   } else {
     conversion_aux = (speed * MAX_ANALOG_WRITE)/MAX_SPEED;
-    Serial.println("conversion_aux: " + String(conversion_aux, DEC));
 
     if (speed > 0)
     {
