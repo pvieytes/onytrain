@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "event.h"
+#include "utils.h"
 
 Event::Event(){
   _lastChange=0;
@@ -43,7 +44,7 @@ int Event::getEvent()
    _lastButton = pressed;
    if (return_btn != BTN_NONE)
    {
-     Serial.println("btn pressed: " + String(pressed, DEC));
+     //log("btn pressed: " + String(pressed, DEC));
    }
    return return_btn;
 }   

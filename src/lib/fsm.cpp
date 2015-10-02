@@ -39,18 +39,22 @@ void Fsm::_eventSelectTrain(int event){
     {
       _speed = _motor.increaseSpeed(_speed);
       _motor.setSpeed(_speed);
+      secondLine = _motor.getSpeedString(_speed);
       break;
     }
-    case BTN_LEFT:
+    case
+     BTN_LEFT:
     {
       _speed = _motor.decreaseSpeed(_speed);
       _motor.setSpeed(_speed);
+      secondLine = _motor.getSpeedString(_speed);
       break;
     }
     case BTN_SELECT:
     {
       _speed = 0;
       _motor.setSpeed(_speed);
+      secondLine = _motor.getSpeedString(_speed);
       break;
     }
     case BTN_UP:
@@ -59,6 +63,7 @@ void Fsm::_eventSelectTrain(int event){
       break;
     }
   }
+  
 };
 
 void Fsm::_eventWelcome(int event){
@@ -91,7 +96,10 @@ void Fsm::_setSelectTrain(){
 }
 
 void Fsm::_setWelcome(){
-  _currentState=WELCOME_STATE;
+  log("void Fsm::_setWelcome()");
+  _currentState = WELCOME_STATE;
   firstLine = WELCOME_STRING_1;
   secondLine = WELCOME_STRING_2;
+  log(firstLine);
+  log(secondLine); 
 }

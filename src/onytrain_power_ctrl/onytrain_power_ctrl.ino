@@ -62,7 +62,7 @@ void loop()
 {
   int eventId = event.getEvent();
   fsm.event(eventId);
-  if (eventId != BTN_NONE){
+  if (eventId != BTN_NONE){    
   	log(fsm.firstLine);
     log(fsm.secondLine);
   }
