@@ -15,7 +15,7 @@
 #define BTN_SELECT  4
 #define BTN_SLEEP   5
 
-#define PRESS_STEP 100//millisecs
+#define PRESS_STEP 300//millisecs
 
 
 #define BTN_RIGHT_THRESHOLD 50 
