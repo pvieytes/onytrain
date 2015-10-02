@@ -15,13 +15,11 @@ def walk_dir(target_dir, file_list):
 
 src_files =  walk_dir('src', [])
 
-html_file = 'src-files.html'
+html_file = '_includes/src-files.html'
 os.system('rm %s' % html_file)
 f = open(html_file, 'w')
-lines = ["""<html><body><ul>"""]
+lines = []
 for src_file in src_files:
-	lines.append("<li><a href='%s'>%s</a></li>" % (src_file, src_file))
-lines.append("</ul></body></html>")	
-
+	lines.append("<li><a href='https://github.com/pvieytes/onytrain/blob/gh-pages/%s'>%s</a></li>" % (src_file, src_file))
 f.write("".join(lines))
 f.close()

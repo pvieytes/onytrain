@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="posts">
+  	<h1>ONYTRAIN</h1>
+    <h3>Automatización de una maqueta ferroviaria escala N.</h3>
+    <p>Repository: <a href="https://github.com/pvieytes/onytrain">https://github.com/pvieytes/onytrain</a>
+
+    <h3>Autor:</h3>
+    <ul><li><a href="https://github.com/pvieytes/">@pvieytes</a></li></ul>
+  </div>
+
+  <h2>Notas</h1>
+
+  <div class="posts">
+    {% for post in site.posts %}
+    {% include post-section.html %}
+    {% endfor %}
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<section class="post">
+  <header class="post-header">
+    {% if post.link %}
+      <h2>
+        <a class="post-title" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        <a class="post-title" href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-gg-circle"></i></a>
+      </h2>
+    {% else %}
+      <h2>
+        <a class="post-title" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      </h2>
+    {% endif %}
+
+    
+    
+
+    <p class="post-meta">
+      By
+      <a class="post-author" href="#">{% if page.author %}{{page.author}}{% else %}{{site.author}}{% endif%}</a>       
+    </p>
+
+    </header>
+
+    <div class="post-description">
+      <p>
+        {{ post.excerpt }}
+      </p>
+    </div>
+
+    {% if post.image.feature %}
+    <div class="post-feature-image">
+      <img src=
+      {% if post.image.feature contains 'http' %}
+      "{{ post.image.feature }}"
+      {% else %}
+      "{{ site.url }}/img/{{ post.image.feature }}"
+      {% endif %}
+      alt="{{ post.title }} feature image">
+
+      {% if post.image.credit %}
+      <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
+      {% endif %}
+    </div><!-- /.image-wrap -->
+    {% endif %}
+
+</section>

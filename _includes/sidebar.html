@@ -1,0 +1,19 @@
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+{% endif %}
+
+<div class="header">
+
+  <div class="row visible-md-block visible-lg-block">
+     <a href="/"><img class="logo" src="/img/logo.png" alt="{{ author.name | downcase }}"></a>
+  </div>
+  <div class="row">   
+    <nav class="nav">
+      <ul class="nav-list">
+         <a href="/"><span class="label label-primary">Home</span></a>
+         <a href="/code/"><span class="label label-primary">Código</span></a>
+      </ul>
+    </nav>      
+  </div>
+
+</div>
