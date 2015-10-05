@@ -8,6 +8,21 @@
 #define WELCOME_STRING_2 "MOLA"
 
 #define SPEED_STRING "Velocidad:"
+#define MENU_TRAIN_SPEED "Start         ->"
+
+#define CONFIGURATION_MENU_STRING "MENU"
+
+#define MENU_LIGHTING		"Luminaria     ->"
+
+#define LIGHTING_STRING_1 "<- LUMINARIA"
+
+
+#define ON 1
+#define OFF 0
+
+#define ON_STR "ON"
+#define OFF_STR "OFF"
+
 
 #define LCD_CHARS  16
 #define LCD_LINES 2
