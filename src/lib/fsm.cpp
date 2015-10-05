@@ -59,7 +59,18 @@ void Fsm::_eventSelectTrain(int event){
     }
     case BTN_UP:
     {
-      _setWelcome();
+
+      _speed = MAX_SPEED;
+      _motor.setSpeed(_speed);
+      secondLine = _motor.getSpeedString(_speed);
+      break;
+    }
+    case BTN_DOWN:
+    {
+
+      _speed = -MAX_SPEED;
+      _motor.setSpeed(_speed);
+      secondLine = _motor.getSpeedString(_speed);
       break;
     }
   }
