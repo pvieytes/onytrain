@@ -1,9 +1,11 @@
 #include "Arduino.h"
 #include "event.h"
+#include "utils.h"
 
 Event::Event(){
   _lastChange=0;
   _lastButton=BTN_NONE;
+  _repeadtedButtonTimes=0;
 }
 
 int Event::_readButton(){
@@ -33,17 +35,38 @@ int Event::getEvent()
    int return_btn;
    int pressed = _readButton();
    int now = millis();
-   return_btn = pressed;        
-   if (pressed == _lastButton && pressed != BTN_NONE && now - _lastChange < PRESS_STEP)
-   {     
-     return_btn = BTN_NONE; 
-   } else {
-     _lastChange = now;
-   }     
-   _lastButton = pressed;
-   if (return_btn != BTN_NONE)
-   {
-     Serial.println("btn pressed: " + String(pressed, DEC));
-   }
-   return return_btn;
+
+   return_btn = pressed;
+   if (pressed != BTN_NONE){
+    //check keep pressed the same button for a long time
+    if (pressed == _lastButton)
+    {  
+      //more than a time step
+      if ( now - _lastChange >= PRESS_STEP){
+        _repeadtedButtonTimes++;
+        _lastChange = now;
+        _lastButton = pressed;
+        //check for double pressed 
+        if (_repeadtedButtonTimes >= STEPS_FOR_DOUBLE ){
+          return_btn = return_btn *  10;
+          _lastButton = return_btn;
+          _repeadtedButtonTimes = 0;
+        }
+      } else {
+        // it doesn't count as a new event
+        return_btn = BTN_NONE;
+      }
+    //new button
+    } else {
+      _repeadtedButtonTimes = 0;
+      _lastChange = now;
+      _lastButton = pressed;
+    }
+  } else {
+    _repeadtedButtonTimes = 0;
+    _lastChange = now;
+    _lastButton = pressed;  }
+  return return_btn;
 }   
+
+

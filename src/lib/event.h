@@ -7,16 +7,20 @@
 
 
 // define some values used by the panel and buttons
-#define BTN_NONE   -1
-#define BTN_RIGHT   0
-#define BTN_UP      1
-#define BTN_DOWN    2
-#define BTN_LEFT    3
-#define BTN_SELECT  4
-#define BTN_SLEEP   5
+#define BTN_NONE          -1
+#define BTN_RIGHT                 1
+#define BTN_DOUBLE_RIGHT          BTN_RIGHT * 10
+#define BTN_UP                    2
+#define BTN_DOUBLE_UP             BTN_UP * 10
+#define BTN_DOWN                  3
+#define BTN_DOUBLE_DOWN           BTN_DOWN * 10
+#define BTN_LEFT                  4
+#define BTN_DOUBLE_LEFT           BTN_LEFT * 10
+#define BTN_SELECT                5
+#define BTN_DOUBLE_SELECT         BTN_SELECT * 10
 
-#define PRESS_STEP 100//millisecs
-
+#define PRESS_STEP 300//millisecs
+#define STEPS_FOR_DOUBLE   3
 
 #define BTN_RIGHT_THRESHOLD 50 
 #define BTN_UP_THRESHOLD 250
@@ -38,7 +42,7 @@ class Event
     //Attributes
     int _lastChange;
     int _lastButton;
-
+    int _repeadtedButtonTimes;
 
 };
 
