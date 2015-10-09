@@ -1,18 +1,22 @@
 ---
 layout: post
-title:  "Bienvenido a Onytrain!"
+title:  "Welcome to Onytrain!"
 date:   2015-10-09 16:07:19
 comments: true
 ---
-Este es unproyecto de automaticación de un maqueta ferroviaria escala N. En su versión 0.1 he usado un arduino que controla unos puentes en H que permiten controlar velocidad y dirección de los trenes. 
-
-Al actuar directamente sobre la tensión entre carriles. Este control afecta por igual a todos los trener sobre la vía.
+This project consists in the automatization of an N Scale Model Railroad. At the very first moment -version 0.1-, I'm just using an Arduino mega and a transistor bridge to control the speed and the direction of the train. It's achived by a PWM signal between the rails, therefore, every single train on the railwail will have the same speed and direction. In a further verson, I'd like to control every train individually.
 
 <!--more-->
 
-Tanto la página web como el código que utilizo para el control de la maqueta se encuentra en este repositorio:
-[repo]
+I'm using an arduino LCD shield as interface to control speed and direction.
 
+I'll add more peripheral, as lighting control.
+
+
+All the code, web and arduino files, can be found here:
+[code]
+
+Any comment will be appreciated.
 
 [repo]:  http://pvieytes.github.io/onytrain/
 <!--
